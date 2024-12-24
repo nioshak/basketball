@@ -150,8 +150,24 @@
         const hamburger = document.querySelector(".hamburger");
         const navLinks = document.querySelector(".nav-links");
 
+        // Toggle the menu
         hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
             navLinks.classList.toggle("active");
+        });
+
+        // Close the menu when a link is clicked
+        navLinks.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", () => {
+                hamburger.classList.remove("active");
+                navLinks.classList.remove("active");
+            });
+        });
+
+        // Close the menu on hover away
+        navLinks.addEventListener("mouseleave", () => {
+            hamburger.classList.remove("active");
+            navLinks.classList.remove("active");
         });
     });
 </script>
